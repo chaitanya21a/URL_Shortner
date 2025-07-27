@@ -2,3 +2,10 @@ Takes a valid url and returns a shortened url.
 bitly
 
 Keep track of Shortened url
+
+/POST/URL to create a Shortened url
+
+/GET/:id to navigate user to the original url
+
+Anaytics to keep track of total clicks and visits of the url
+/GET/url/Anaytics/:id

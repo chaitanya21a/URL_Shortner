@@ -1,0 +1,26 @@
+{
+  "name": "url_shortner",
+  "version": "1.0.0",
+  "description": "URL SHORTNER",
+  "homepage": "https://github.com/chaitanya21a/URL_Shortner#readme",
+  "bugs": {
+    "url": "https://github.com/chaitanya21a/URL_Shortner/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaitanya21a/URL_Shortner.git"
+  },
+  "license": "ISC",
+  "author": "Chaitanya",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.16.5",
+    "nanoid": "^5.1.5",
+    "nodemon": "^3.1.10"
+  }
+}
