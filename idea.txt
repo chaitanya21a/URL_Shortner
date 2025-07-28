@@ -9,3 +9,9 @@ Keep track of Shortened url
 
 Anaytics to keep track of total clicks and visits of the url
 /GET/url/Anaytics/:id
+
+
+Working of Server Side Rendering also explained.
+
+Using Viw engines Template Engine like EJS, PUGJS and handlebars
+Using EJS.
