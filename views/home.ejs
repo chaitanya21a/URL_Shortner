@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
     <title>Homepage</title>
 </head>
+
 <body>
-    <h1>Hey From Homepage</h1>
-<%
+    <h1>URL SHORTNER</h1>
+    <!-- If you have an id variable, you can display it here -->
+    <div>
+        <% if (id) { %>
+            <p>Your shortened URL is: <a target="_blank" href="/url/<%= id %>">http://localhost:8000/url/<%= id %></a>
+            </p>
+            <% } %>
+    </div>
+    <!-- We need a form for user to put the link -->
+    <div>
+        <form method="post" action="/url">
+            <label>Enter your Original URL</label>
+            <input type="text" name="url" id="url" placeholder="https://example.com" required>
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <!-- Table for stats of url click -->
+    <div>
+        <% if (urls) { %>
+            <table>
+                <thead>
+                    <th>SR No.</th>
+                    <th>Short ID</th>
+                    <th>Original URL</th>
+                    <th>Visit History</th>  
+                </thead>
+                <tbody>
+                    <% urls.forEach((e,ind) => { %>
+                        <tr>
+                            <td><%= ind + 1 %></td>
+                            <td><%= e.short_id %></td>
+                            <td><%= e.original_url %></td>
+                            <td><%= e.visit_history.length%></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+
+
 </body>
+
 </html>

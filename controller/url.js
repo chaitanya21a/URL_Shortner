@@ -12,9 +12,14 @@ async function generate_url(req, res) {
         original_url: url,
         visit_history: []
     });
-    return res.status(200).json({
-        short_id: short
+    const allurls = await URL.find({});
+    return res.render('home', {
+        id: short,
+        urls: allurls
     });
+    // return res.status(200).json({
+    //     short_id: short
+    // });
 }
 //package called nano-id to generate unique ids
 //we have to pass length of id we want to generate nano(idLength)
@@ -46,21 +51,21 @@ async function getAnalytics(req, res) {
 }
 async function getstats(req, res) {
     const entries = await URL.find({});
-    // const html = `
-    //     <html>
-    //        <head>
-    //         <title>URL Stats</title>
-    //         <h1>URL Stats</h1>
-    //     </head>
-    //     <body>
-    //     <ol>
-    //       ${entries.map(e => `<li> ${e.original_url}-${e.short_id}-${e.visit_history.length}</li>`).join('')}
-    //     </ol>
-    //     </body>
-    //     </html>
-    //     `;
-    // res.send(html);
-    res.render('home',{urls:entries});
+    const html = `
+        <html>
+           <head>
+            <title>URL Stats</title>
+            <h1>URL Stats</h1>
+        </head>
+        <body>
+        <ol>
+          ${entries.map(e => `<li> ${e.original_url}-${e.short_id}-${e.visit_history.length}</li>`).join('')}
+        </ol>
+        </body>
+        </html>
+        `;
+    res.send(html);
+    // res.render('home',{urls:entries});
 }
 module.exports = {
     generate_url,
