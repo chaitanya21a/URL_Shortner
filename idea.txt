@@ -15,3 +15,9 @@ Working of Server Side Rendering also explained.
 
 Using Viw engines Template Engine like EJS, PUGJS and handlebars
 Using EJS.
+
+Inline Middlewares can be used for particular routes as well.
+
+
+On every restart of server uid is destroyed due to map being deleted.
+to fix this we use an id of user tracked in mongo db

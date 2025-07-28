@@ -10,13 +10,11 @@ async function generate_url(req, res) {
     await URL.create({
         short_id: short,
         original_url: url,
-        visit_history: []
+        visit_history: [],
+        createdby:req.user._id
     });
     const allurls = await URL.find({});
-    return res.render('home', {
-        id: short,
-        urls: allurls
-    });
+    return res.redirect('/');
     // return res.status(200).json({
     //     short_id: short
     // });
